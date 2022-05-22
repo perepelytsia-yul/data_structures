@@ -8,16 +8,14 @@ class Arr:
         if self.__data__:
             if isinstance(el, type(self.__data__[0])):
                 self.__data__.append(el)
-            else:
-                print("Data in Arr can be only of one Data type!!!")
         else:
             self.__data__.append(el)
 
     def __str__(self):
-        bobo = ""
+        test_str = ""
         for i in self.__data__:
-            bobo += str(i)
-        return bobo
+            test_str += (str(i) + " ")
+        return test_str
 
 
 test = Arr()
