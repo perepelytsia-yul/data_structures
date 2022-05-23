@@ -43,18 +43,15 @@ class SortedBinaryTree:
 
     def add_child(self, child):
         if child.get_data() <= self.__data:
-            if root.get_left_child():
-                self.add_left_child(child)
+            if self.get_left_child():
+                self.get_left_child().add_child(child)
             else:
-                self.add_left_child(child)
+                self.leftChild = child
         else:
-            self.add_right_child(child)
-
-    def add_left_child(self, child):
-        self.leftChild = child
-
-    def add_right_child(self, child):
-        self.rightChild = child
+            if self.get_right_child():
+                self.get_right_child().add_child(child)
+            else:
+                self.rightChild = child
 
     def get_left_child(self):
         return self.leftChild
@@ -69,5 +66,10 @@ class SortedBinaryTree:
 root = SortedBinaryTree(77)
 root.print_data()
 root.add_child(SortedBinaryTree(55))
+root.add_child(SortedBinaryTree(23))
+root.add_child(SortedBinaryTree(7))
 root.get_left_child().print_data()
+root.get_left_child().get_left_child().print_data()
+root.get_left_child().get_left_child().get_left_child().print_data()
+
 #root.get_right_child().print_data()
