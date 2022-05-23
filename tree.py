@@ -62,6 +62,20 @@ class SortedBinaryTree:
     def print_data(self):
         print(self.__data)
 
+    def check_value(self, value):
+        if self.__data == value:
+            return True
+        elif self.__data > value:
+            if self.get_left_child():
+                return self.get_left_child().check_value(value)
+            else:
+                return False
+        else:
+            if self.get_right_child():
+                return self.get_right_child().check_value(value)
+            else:
+                return False
+
 
 root = SortedBinaryTree(77)
 root.print_data()
@@ -71,5 +85,7 @@ root.add_child(SortedBinaryTree(7))
 root.get_left_child().print_data()
 root.get_left_child().get_left_child().print_data()
 root.get_left_child().get_left_child().get_left_child().print_data()
+
+print(root.check_value(23))
 
 #root.get_right_child().print_data()
